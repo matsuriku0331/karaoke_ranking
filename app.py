@@ -18,6 +18,14 @@ USER_COOKIES = {
         "webmember": "1",
         "wm_ac": "matsuriku0331",
         "wm_dm": "softbank.ne.jp"
+    },
+    "えす": {
+        "dam-uid": "5c6851a696db3f0488cea63754f839d70810012f131432c88a487c2227af8429",
+        "scr_cdm": "ODAwMDEwMjY2NDgyMjkw",
+        "scr_dt": "MTIzODQzNzgy",
+        "webmember": "1",
+        "wm_ac": "takaramaruya",
+        "wm_dm": "gmail.com"
     }
 }
 
