@@ -114,12 +114,13 @@ def update_ranking():
         df_all["スコア"] = pd.to_numeric(df_all["スコア"], errors="coerce")
         df_all["日付"] = pd.to_datetime(df_all["日付"], errors="coerce")
 
-        # 曲名・ユーザー・日付（秒まで完全一致）の重複を削除
+        # CSVが存在する場合、既存データと結合
         if os.path.exists(csv_file):
             df_existing = pd.read_csv(csv_file)
             df_existing["日付"] = pd.to_datetime(df_existing["日付"], errors="coerce")
             df_all = pd.concat([df_existing, df_all], ignore_index=True)
 
+        # 曲名・ユーザー・日付（秒まで完全一致）の重複を削除
         df_all = df_all.drop_duplicates(subset=["曲名", "ユーザー", "日付"], keep="first")
         df_all.to_csv(csv_file, index=False)
 
@@ -139,4 +140,6 @@ def update_ranking():
                            sort_order=sort_order)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Render が指定するポートを取得
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
