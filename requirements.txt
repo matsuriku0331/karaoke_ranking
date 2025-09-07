@@ -1,4 +1,4 @@
-Flask==2.3.4
+Flask==2.3.3
 Flask-SQLAlchemy==3.0.5
 SQLAlchemy==2.0.22
 requests==2.31.0
